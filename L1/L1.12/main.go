@@ -9,12 +9,11 @@ func main() {
 	var result []string
 
 	for _, v := range arr {
-		unique[v]++
+		unique[v]++ //считаем количество уникальных имен
 		if unique[v] > 1 {
-			continue
+			continue //пропускаем добавление в результат если значение уже существует в мар
 		}
 		result = append(result, v)
-
 	}
 	fmt.Println(result)
 }
