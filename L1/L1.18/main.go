@@ -7,30 +7,29 @@ import (
 )
 
 type Counter struct {
-	value int64
+	val uint64
 }
 
 func (c *Counter) increment() {
-	atomic.AddInt64(&c.value, 1)
+	atomic.AddUint64(&c.val, 1)
 }
 
-func (c *Counter) getValue() int64 {
-	return atomic.LoadInt64(&c.value)
+func (c *Counter) getValue() uint64 {
+	return atomic.LoadUint64(&c.val)
 }
 
 func main() {
-	counter := &Counter{}
-	var wg sync.WaitGroup
+	var wg sync.WaitGroup //синзронизируем main
 
-	for range 1000 {
+	c := &Counter{} //инициализация counter
+
+	for range 1000 { //создали 1000 горутин
 		wg.Add(1)
 		go func() {
 			defer wg.Done()
-			counter.increment()
+			c.increment() //прибавляем 1 с помощью атомик
 		}()
 	}
-
 	wg.Wait()
-	fmt.Println(counter.getValue())
-
+	fmt.Println("maximum value", c.getValue()) // выводим максимальное значение counter
 }
