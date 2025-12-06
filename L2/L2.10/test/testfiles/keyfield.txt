@@ -1,0 +1,5 @@
+1	zebra
+2	apple
+3	banana
+1	cat
+
