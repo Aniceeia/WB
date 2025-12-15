@@ -6,7 +6,7 @@ import (
 	"testing"
 )
 
-func TestFindAnagramsBasic(t *testing.T) {
+func TestSearchAnagramsBasic(t *testing.T) {
 	input := []string{"пятак", "пятка", "тяпка", "листок", "слиток", "столик", "стол"}
 
 	got := searchForAnagrams(input)
@@ -36,7 +36,7 @@ func TestFindAnagramsBasic(t *testing.T) {
 	}
 }
 
-func TestFindAnagramsSingleWordsIgnored(t *testing.T) {
+func TestSearchAnagramsSingleWordsIgnored(t *testing.T) {
 	input := []string{"стол", "окно", "дверь"}
 
 	got := searchForAnagrams(input)
@@ -46,7 +46,7 @@ func TestFindAnagramsSingleWordsIgnored(t *testing.T) {
 	}
 }
 
-func TestFindAnagramsCaseInsensitive(t *testing.T) {
+func TestSearchAnagramsCaseInsensitive(t *testing.T) {
 	input := []string{"Пятак", "пЯткА", "ТЯПКА"}
 
 	got := searchForAnagrams(input)
@@ -69,7 +69,7 @@ func TestFindAnagramsCaseInsensitive(t *testing.T) {
 	}
 }
 
-func TestFindAnagramsWithDuplicates(t *testing.T) {
+func TestSearchAnagramsWithDuplicates(t *testing.T) {
 	input := []string{"пятак", "пятак", "тяпка", "тяпка", "пятка"}
 
 	got := searchForAnagrams(input)
